@@ -5,16 +5,21 @@ import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <section
-      className="
-        min-h-screen
-        flex items-center justify-center
-        px-6
-        bg-gradient-to-br
-        from-blue-300
-        via-purple-300
-        to-pink-300
-      "
+    <motion.section
+      style={{
+        backgroundImage: 'linear-gradient(270deg, #93C5FD, #C084FC, #FF77F2)',
+        backgroundSize: '200% 200%',
+      }}
+      animate={{
+        backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+      }}
+      transition={{
+        duration: 10,
+        ease: 'linear',          // constant speed
+        repeat: Infinity,
+        repeatType: 'mirror',    // bounces back instead of jumping
+      }}
+      className="min-h-screen flex items-center justify-center px-6"
     >
       <div className="text-center max-w-2xl">
         <motion.h1
@@ -23,7 +28,7 @@ export default function Hero() {
           transition={{ delay: 0.2 }}
           className="text-4xl md:text-6xl font-extrabold uppercase text-white"
         >
-          Hey, I'm Luke Grady
+          Hey, I’m Luke Grady
         </motion.h1>
 
         <motion.p
@@ -42,14 +47,14 @@ export default function Hero() {
           className="mt-8"
         >
           <Link
-            href="#projects"
+            href="/projects"
             className="inline-block bg-white hover:bg-gray-200 text-black font-semibold py-3 px-6 rounded-lg shadow-lg"
           >
             Projects
           </Link>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

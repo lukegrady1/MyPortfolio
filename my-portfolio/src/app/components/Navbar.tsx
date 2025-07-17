@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 
 export default function Navbar() {
+  const links = ['Home','About','Projects','Contact']
+
   return (
     <motion.nav
       initial={{ y: -50, opacity: 0 }}
@@ -13,17 +15,23 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="font-bold text-lg">
-          {/* <img src="/avatar.jpg" alt="Avatar" className="h-8 w-8 rounded-full inline-block mr-2" /> */}
           Luke Grady
         </Link>
         <ul className="flex space-x-8 uppercase text-sm">
-          {['Home','About','Projects','Contact'].map(item => (
-            <li key={item}>
-              <Link href={ item === 'Home' ? '/' : `/#${item.toLowerCase()}` }>
-                {item}
-              </Link>
-            </li>
-          ))}
+          {links.map(item => {
+            let href = '/'
+            if (item === 'About')     href = '/about'
+            else if (item === 'Home')  href = '/'
+            else if (item === 'Projects') href = '/projects'    // if you have a /projects page
+            else if (item === 'Contact')  href = '/#contact'     // or keep it as an anchor
+            return (
+              <li key={item}>
+                <Link href={href}>
+                  {item}
+                </Link>
+              </li>
+            )
+          })}
         </ul>
       </div>
     </motion.nav>

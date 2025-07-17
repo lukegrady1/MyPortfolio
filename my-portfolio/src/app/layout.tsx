@@ -1,11 +1,11 @@
 import './globals.css'
 import { ReactNode } from 'react'
-import Navbar from '../components/Navbar'
-import SocialIcons from '../components/SocialIcons'
+import Navbar from './components/Navbar'
+import SocialIcons from './components/SocialIcons'
 
 export const metadata = {
-  title: 'Your Name – Portfolio',
-  description: 'Frontend Developer',
+  title: 'Luke Grady – Portfolio',
+  description: 'Software Engineer',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
